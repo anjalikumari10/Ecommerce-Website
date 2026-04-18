@@ -90,13 +90,6 @@ export default function Login() {
             >
               Email Address
             </label>
-            <label
-              className={`block text-sm font-medium mb-1 ${
-                theme === "dark" ? "text-dark-text-secondary" : "text-gray-700"
-              }`}
-            >
-              Email Address
-            </label>
             <input
               type="email"
               placeholder="you@example.com"

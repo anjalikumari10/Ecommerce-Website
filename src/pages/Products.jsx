@@ -97,7 +97,7 @@ export default function Products() {
 
   return (
     <div
-      className={`min-h-screen px-4 py-8 transition-colors duration-300 ${
+      className={`min-h-screen px-3 sm:px-4 py-6 sm:py-8 transition-colors duration-300 ${
         theme === "dark"
           ? "bg-dark-bg"
           : "bg-gradient-to-br from-blue-50 to-indigo-100"
@@ -106,15 +106,15 @@ export default function Products() {
       <div className="max-w-7xl mx-auto">
         {/* Hero Section and Search */}
         <div
-          className={`rounded-lg shadow-md p-6 mb-8 transition-colors duration-300 ${
+          className={`rounded-lg shadow-md p-4 sm:p-6 mb-6 sm:mb-8 transition-colors duration-300 ${
             theme === "dark" ? "bg-dark-card" : "bg-white"
           }`}
         >
-          <div className="flex gap-3 items-end">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 items-start sm:items-end">
             {/* Search Input */}
-            <div className="flex-1">
+            <div className="flex-1 w-full">
               <label
-                className={`block text-sm font-semibold mb-2 ${
+                className={`block text-xs sm:text-sm font-semibold mb-2 ${
                   theme === "dark"
                     ? "text-dark-text-secondary"
                     : "text-gray-700"
@@ -130,8 +130,8 @@ export default function Products() {
                     setSearch(e.target.value);
                     setPage(1);
                   }}
-                  placeholder="Search by product name..."
-                  className={`flex-1 px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition ${
+                  placeholder="Search products..."
+                  className={`flex-1 px-3 sm:px-4 py-2 sm:py-3 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition border ${
                     theme === "dark"
                       ? "bg-dark-bg border-dark-border text-dark-text"
                       : "border-gray-300 bg-white text-gray-900"
@@ -143,7 +143,7 @@ export default function Products() {
                       setSearch("");
                       setPage(1);
                     }}
-                    className={`px-4 py-3 rounded-lg font-medium transition duration-200 ${
+                    className={`px-2 sm:px-4 py-2 sm:py-3 rounded-lg font-medium transition duration-200 text-sm whitespace-nowrap ${
                       theme === "dark"
                         ? "bg-dark-bg hover:bg-dark-border text-dark-text"
                         : "bg-gray-200 hover:bg-gray-300 text-gray-700"
@@ -158,7 +158,7 @@ export default function Products() {
             {/* Advanced Search Toggle */}
             <button
               onClick={() => setShowAdvancedSearch(!showAdvancedSearch)}
-              className={`px-6 py-3 rounded-lg font-semibold transition duration-300 whitespace-nowrap ${
+              className={`w-full sm:w-auto px-3 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold transition duration-300 whitespace-nowrap text-sm ${
                 showAdvancedSearch
                   ? "bg-blue-600 text-white hover:bg-blue-700"
                   : theme === "dark"
@@ -168,11 +168,11 @@ export default function Products() {
             >
               {showAdvancedSearch ? (
                 <>
-                  <i className="fas fa-times mr-2"></i>Close
+                  <i className="fas fa-times mr-1 sm:mr-2"></i>Close
                 </>
               ) : (
                 <>
-                  <i className="fas fa-sliders-h mr-2"></i>Advanced
+                  <i className="fas fa-sliders-h mr-1 sm:mr-2"></i>Advanced
                 </>
               )}
             </button>
@@ -180,12 +180,16 @@ export default function Products() {
 
           {/* Advanced Search Panel */}
           {showAdvancedSearch && (
-            <div className="mt-6 pt-6 border-t border-gray-200 animate-slide-down">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-gray-200 animate-slide-down">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 {/* Category Filter */}
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    <i className="fas fa-folder mr-2"></i>Category
+                  <label
+                    className={`block text-xs sm:text-sm font-semibold mb-2 ${
+                      theme === "dark" ? "text-dark-text" : "text-gray-700"
+                    }`}
+                  >
+                    <i className="fas fa-folder mr-1 sm:mr-2"></i>Category
                   </label>
                   <select
                     value={category}
@@ -193,7 +197,11 @@ export default function Products() {
                       setCategory(e.target.value);
                       setPage(1);
                     }}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition bg-white"
+                    className={`w-full px-3 sm:px-4 py-2 sm:py-3 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition border ${
+                      theme === "dark"
+                        ? "bg-dark-bg border-dark-border text-dark-text"
+                        : "border-gray-300 bg-white text-gray-900"
+                    }`}
                   >
                     <option value="">All Categories</option>
                     {categories.map((c) => (
@@ -206,13 +214,21 @@ export default function Products() {
 
                 {/* Sort Options */}
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    <i className="fas fa-sort mr-2"></i>Sort By
+                  <label
+                    className={`block text-xs sm:text-sm font-semibold mb-2 ${
+                      theme === "dark" ? "text-dark-text" : "text-gray-700"
+                    }`}
+                  >
+                    <i className="fas fa-sort mr-1 sm:mr-2"></i>Sort By
                   </label>
                   <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition bg-white"
+                    className={`w-full px-3 sm:px-4 py-2 sm:py-3 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition border ${
+                      theme === "dark"
+                        ? "bg-dark-bg border-dark-border text-dark-text"
+                        : "border-gray-300 bg-white text-gray-900"
+                    }`}
                   >
                     <option value="featured">Featured</option>
                     <option value="price-low">Price: Low to High</option>
@@ -222,8 +238,8 @@ export default function Products() {
               </div>
 
               {/* Results Count */}
-              <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg px-4 py-3">
-                <p className="text-sm text-gray-600">
+              <div className="mt-4 sm:mt-6 bg-blue-50 border border-blue-200 rounded-lg px-3 sm:px-4 py-2 sm:py-3">
+                <p className="text-xs sm:text-sm text-gray-600">
                   <span className="font-bold text-blue-600">
                     {filtered.length}
                   </span>{" "}
@@ -236,14 +252,14 @@ export default function Products() {
 
         {/* No Results Message */}
         {filtered.length === 0 && !loading ? (
-          <div className="text-center py-12">
-            <div className="text-6xl mb-4">
+          <div className="text-center py-8 sm:py-12">
+            <div className="text-4xl sm:text-6xl mb-4">
               <i className="fas fa-search text-gray-400"></i>
             </div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-2">
+            <h3 className="text-lg sm:text-2xl font-bold text-gray-800 mb-2">
               No Products Found
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-sm sm:text-base text-gray-600 mb-6">
               Try adjusting your search or filters
             </p>
             <button
@@ -252,7 +268,7 @@ export default function Products() {
                 setCategory("");
                 setPage(1);
               }}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition duration-200"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-lg transition duration-200 text-sm sm:text-base"
             >
               Reset Filters
             </button>
@@ -260,7 +276,7 @@ export default function Products() {
         ) : (
           <>
             {/* Products Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8">
               {loading
                 ? Array(8)
                     .fill()
@@ -279,16 +295,16 @@ export default function Products() {
 
             {/* Pagination */}
             {totalPages > 1 && (
-              <div className="flex justify-center items-center gap-2 mb-8">
+              <div className="flex flex-wrap justify-center items-center gap-1 sm:gap-2 mb-8 px-2">
                 <button
                   onClick={() => setPage(Math.max(1, page - 1))}
                   disabled={page === 1}
-                  className="px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition"
+                  className="px-2 sm:px-4 py-1 sm:py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition text-xs sm:text-sm"
                 >
-                  ← Previous
+                  ← Prev
                 </button>
 
-                <div className="flex gap-2">
+                <div className="flex gap-1 flex-wrap justify-center">
                   {Array.from({ length: totalPages }, (_, i) => {
                     const pageNum = i + 1;
                     // Show first 3 pages, last 3 pages, and current page with nearby pages
@@ -301,7 +317,7 @@ export default function Products() {
                         <button
                           key={pageNum}
                           onClick={() => setPage(pageNum)}
-                          className={`px-4 py-2 rounded-lg font-medium transition ${
+                          className={`px-2 sm:px-3 py-1 sm:py-2 rounded-lg font-medium transition text-xs sm:text-sm ${
                             page === pageNum
                               ? "bg-blue-600 text-white shadow-md"
                               : "bg-white border border-gray-300 hover:bg-blue-50"
@@ -315,7 +331,10 @@ export default function Products() {
                       (pageNum === totalPages - 3 && page < totalPages - 3)
                     ) {
                       return (
-                        <span key={pageNum} className="px-2 py-2 text-gray-400">
+                        <span
+                          key={pageNum}
+                          className="px-1 sm:px-2 py-1 sm:py-2 text-gray-400 text-xs sm:text-sm"
+                        >
                           ...
                         </span>
                       );
@@ -327,7 +346,7 @@ export default function Products() {
                 <button
                   onClick={() => setPage(Math.min(totalPages, page + 1))}
                   disabled={page === totalPages}
-                  className="px-4 py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition"
+                  className="px-2 sm:px-4 py-1 sm:py-2 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition text-xs sm:text-sm"
                 >
                   Next →
                 </button>

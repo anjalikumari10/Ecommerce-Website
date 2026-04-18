@@ -57,7 +57,7 @@ export default function Signup() {
       }`}
     >
       <div
-        className={`rounded-lg shadow-2xl p-8 w-full max-w-md animate-scale-up ${
+        className={`rounded-lg shadow-2xl p-4 sm:p-6 md:p-8 w-full max-w-md animate-scale-up ${
           theme === "dark" ? "bg-dark-card" : "bg-white"
         }`}
       >
@@ -75,16 +75,16 @@ export default function Signup() {
           </button>
         </div>
 
-        <div className="text-center mb-8 animate-slide-up">
+        <div className="text-center mb-6 sm:mb-8 animate-slide-up">
           <h1
-            className={`text-3xl font-bold mb-2 ${
+            className={`text-2xl sm:text-3xl font-bold mb-2 ${
               theme === "dark" ? "text-dark-text" : "text-gray-800"
             }`}
           >
             Create Account
           </h1>
           <p
-            className={`${
+            className={`text-xs sm:text-sm ${
               theme === "dark" ? "text-dark-text-secondary" : "text-gray-600"
             }`}
           >
@@ -95,7 +95,7 @@ export default function Signup() {
         <form onSubmit={handleSignup} className="space-y-4">
           <div className="animate-slide-up" style={{ animationDelay: "0.1s" }}>
             <label
-              className={`block text-sm font-medium mb-1 ${
+              className={`block text-xs sm:text-sm font-medium mb-1 ${
                 theme === "dark" ? "text-dark-text-secondary" : "text-gray-700"
               }`}
             >
@@ -106,7 +106,7 @@ export default function Signup() {
               placeholder="you@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className={`w-full px-4 py-2 border rounded-lg transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+              className={`w-full px-3 sm:px-4 py-2 sm:py-3 text-sm border rounded-lg transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                 theme === "dark"
                   ? "bg-dark-bg border-dark-border text-dark-text"
                   : "border-gray-300 bg-white text-gray-900"
@@ -116,7 +116,7 @@ export default function Signup() {
 
           <div className="animate-slide-up" style={{ animationDelay: "0.2s" }}>
             <label
-              className={`block text-sm font-medium mb-1 ${
+              className={`block text-xs sm:text-sm font-medium mb-1 ${
                 theme === "dark" ? "text-dark-text-secondary" : "text-gray-700"
               }`}
             >
@@ -127,7 +127,7 @@ export default function Signup() {
               placeholder="Enter your password (min 6 characters)"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className={`w-full px-4 py-2 border rounded-lg transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+              className={`w-full px-3 sm:px-4 py-2 sm:py-3 text-sm border rounded-lg transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                 theme === "dark"
                   ? "bg-dark-bg border-dark-border text-dark-text"
                   : "border-gray-300 bg-white text-gray-900"
@@ -137,7 +137,7 @@ export default function Signup() {
 
           <div className="animate-slide-up" style={{ animationDelay: "0.3s" }}>
             <label
-              className={`block text-sm font-medium mb-1 ${
+              className={`block text-xs sm:text-sm font-medium mb-1 ${
                 theme === "dark" ? "text-dark-text-secondary" : "text-gray-700"
               }`}
             >
@@ -148,7 +148,7 @@ export default function Signup() {
               placeholder="Confirm your password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className={`w-full px-4 py-2 border rounded-lg transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+              className={`w-full px-3 sm:px-4 py-2 sm:py-3 text-sm border rounded-lg transition focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
                 theme === "dark"
                   ? "bg-dark-bg border-dark-border text-dark-text"
                   : "border-gray-300 bg-white text-gray-900"
@@ -159,7 +159,7 @@ export default function Signup() {
           <button
             type="submit"
             disabled={loading}
-            className={`w-full font-semibold py-2 rounded-lg transition duration-200 mt-6 hover:scale-105 active:scale-95 ${
+            className={`w-full font-semibold py-2 sm:py-3 text-sm rounded-lg transition duration-200 mt-4 sm:mt-6 hover:scale-105 active:scale-95 ${
               loading
                 ? theme === "dark"
                   ? "bg-gray-600 text-dark-text cursor-not-allowed"
@@ -174,7 +174,7 @@ export default function Signup() {
         </form>
 
         <div
-          className={`mt-6 text-center text-sm ${
+          className={`mt-4 sm:mt-6 text-center text-xs sm:text-sm ${
             theme === "dark" ? "text-dark-text-secondary" : "text-gray-600"
           }`}
         >
@@ -194,7 +194,7 @@ export default function Signup() {
         </div>
 
         <div
-          className={`mt-4 p-3 rounded-lg text-sm ${
+          className={`mt-3 sm:mt-4 p-2 sm:p-3 rounded-lg text-xs sm:text-sm ${
             theme === "dark"
               ? "bg-dark-bg border border-dark-border text-dark-text-secondary"
               : "bg-gray-100 text-gray-600"
